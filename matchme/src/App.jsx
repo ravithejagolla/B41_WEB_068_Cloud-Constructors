@@ -1,13 +1,16 @@
 
 import './App.css'
-import Profile from './components/Profile'
+
+import FilterComponent from './components/Filter'
+import Footer from './components/footer'
+import Hero from './components/hero'
+import Navbar from './components/navbar'
 
 function App() {
 
+
   return (
     <>
-    
-      <Profile/>
     </>
   )
 }
