@@ -1,5 +1,6 @@
 
 import './App.css'
+
 import FilterComponent from './components/Filter'
 import Footer from './components/footer'
 import Hero from './components/hero'
@@ -10,13 +11,6 @@ function App() {
 
   return (
     <>
-    {/* <Navbar/>
-
-    <Hero/>
-
-
-    <Footer/> */}
-    <FilterComponent/>
     </>
   )
 }
