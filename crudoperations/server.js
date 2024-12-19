@@ -1,23 +1,27 @@
-require('dotenv').config();
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config(); // Load environment variables
 const connectDB = require('./config/db');
-const userRoutes = require('./routes/userRoutes');
-
 const app = express();
 
-// Middleware
-app.use(bodyParser.json());
-app.use(cors());
-
-// Connect to MongoDB
+// Middleware to parse JSON requests
+app.use(express.json());
 connectDB();
+// Connect to MongoDB
+mongoose
+  .connect("mongodb://localhost:27017/searchandfilter", {
+    dbName: 'matchme', // Ensure the database name is correct
+  })
+  .then(() => console.log('MongoDB connected successfully'))
+  .catch((err) => console.error('MongoDB connection error:', err));
 
+// Define a simple route (Optional, for testing)
+app.get('/', (req, res) => {
+  res.send('Server is running!');
+});
 
-// Routes
-app.use('/api', userRoutes);
-
-// Start Server
+// Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(3000, () => {
+  console.log(`Server running on http://localhost:3000`);
+});
