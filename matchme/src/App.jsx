@@ -1,16 +1,17 @@
 
 import './App.css'
-
-import FilterComponent from './components/Filter'
-import Footer from './components/footer'
-import Hero from './components/hero'
-import Navbar from './components/navbar'
+import Login from './components/Login'
+import Register from './components/Register'
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
-
-
   return (
     <>
+    <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
     </>
   )
 }
